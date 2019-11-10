@@ -148,7 +148,7 @@ public class BinarySearchTreeMap<K extends Comparable<K>, V> {
         if(node != null)
         {
             keySetSub(node.left, keys);
-            keys.add(node.left);
+            keys.add(node.key);
             keySetSub(node.right, keys);
         }
         return keys;

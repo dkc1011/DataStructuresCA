@@ -8,13 +8,14 @@ public class IndexMain {
 
         InvertedIndex index = new InvertedIndex();
 
-        File f = new File("C:\\Users\\t00201097\\Desktop\\DS A CA\\Test");
+        File f = new File("C:\\Users\\Daragh\\Desktop\\DataStructuresCA\\Test");
         List<File> files = new ArrayList<File>(Arrays.asList(f.listFiles()));
 
         index.buildIndex(files);
         
         index.print();  //output index
         index.printIndexHeight(); //outputs the height of the tree
+        index.printNumberOfWords(); //outputs the height of the tree
 
         long sTime =System.currentTimeMillis();
         index.searchAllWords();

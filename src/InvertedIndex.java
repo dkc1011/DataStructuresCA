@@ -13,6 +13,7 @@ public class InvertedIndex {
     private Set<String> allWords;  //set of all unique words in the index
     //used in profiling the search method
 
+    int noOfWordsAdded = 0;
     // Methods
     public InvertedIndex() {
         index = new BinarySearchTreeMap<>();
@@ -22,7 +23,7 @@ public class InvertedIndex {
     }
 
     public void buildIndex(List<File> files) {
-        int noOfWordsAdded = 0;
+
         for (File file : files) {
             try {
                 Scanner in = new Scanner(file);
@@ -38,7 +39,6 @@ public class InvertedIndex {
                     // characters other than letters, numbers and apostrophe
                     // This strips off punctuation marks
                     words = line.split("[^A-Za-z']+");
-
                     //add words and filename to index
                     for (String word : words) {
                         if (!word.equals("")) {
@@ -57,6 +57,7 @@ public class InvertedIndex {
                             }
                         }
                     }
+
                 }
 
             } catch (IOException exc) {
@@ -66,7 +67,7 @@ public class InvertedIndex {
             }
         }
 
-        System.out.println(noOfWordsAdded);
+
     }
     
     public void print() {
@@ -81,6 +82,11 @@ public class InvertedIndex {
     public void printIndexHeight()
     {
         System.out.println("Index Height: " + index.height());
+    }
+
+    public void printNumberOfWords()
+    {
+        System.out.println("Number of Words Added: " + noOfWordsAdded);
     }
 
     public List<File> search(String s) {
